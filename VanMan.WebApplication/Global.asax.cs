@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Data.Services.Client;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
@@ -111,8 +113,12 @@ namespace VanMan.WebApplication
                     Options = (int)RedirectOptions.Default,
                     PartitionKey = string.Empty
                 };
-                context.AddObject(Vanity.TableName, vanity);
-                context.SaveChanges();
+
+                //Task.Run(() =>
+                {
+                    context.AddObject(Vanity.TableName, vanity);
+                    context.SaveChanges();
+                }//);
             }
 
             var destination = (((vanity.GetOptions() & RedirectOptions.PreservePath) == RedirectOptions.PreservePath)
