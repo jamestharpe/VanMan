@@ -58,7 +58,7 @@ namespace VanMan.WebApplication
 
                 Vanity temp = new Vanity("http://www.rollins.com")
                 {
-                    Destination = "http://www.rollins.com",
+                    Destination = CloudConfigurationManager.GetSetting("DefaultDestination") ?? "https://github.com/jamestharpe/VanMan",
                     Options = (int)RedirectOptions.Default,
                     PartitionKey = string.Empty
                 };
