@@ -5,7 +5,7 @@
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
       <Setting name="StorageConnectionString" value="UseDevelopmentStorage=true" />
-      <Setting name="DefaultDestination" value="https://github.com/jamestharpe/VanMan" />
+      <Setting name="DefaultDestination" value="http://www.rollins.com" />
     </ConfigurationSettings>
   </Role>
 </ServiceConfiguration>

@@ -25,6 +25,7 @@
     </Imports>
     <ConfigurationSettings>
       <Setting name="StorageConnectionString" />
+      <Setting name="DefaultDestination" />
     </ConfigurationSettings>
   </WebRole>
 </ServiceDefinition>

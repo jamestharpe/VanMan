@@ -10,6 +10,9 @@ using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
 using VanMan.WebApplication.App_Code;
+using Microsoft.WindowsAzure.Diagnostics;
+using System.Diagnostics;
+using Microsoft.WindowsAzure.ServiceRuntime;
 
 namespace VanMan.WebApplication
 {
@@ -68,21 +71,28 @@ namespace VanMan.WebApplication
                 context.DeleteObject(temp);
                 context.SaveChanges(SaveChangesOptions.ContinueOnError);
             }
+
+
         }
+
 
         protected void Session_Start(object sender, EventArgs e)
         {
-
+            Trace.WriteLine("Session Start");
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
+            Trace.WriteLine("Application_BeginRequest");
+            
             var context = GetTableClient().GetDataServiceContext();
             context.IgnoreResourceNotFoundException = true;
 
             var uri = Request.Url;
 
             var rowKey = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(uri.ToString()));
+
+            Trace.WriteLine(string.Format("Handling {0} ({1})", uri, rowKey));
 
             Vanity vanity = context.CreateQuery<Vanity>(Vanity.TableName)
                 .Where(v =>
@@ -118,6 +128,7 @@ namespace VanMan.WebApplication
                 {
                     context.AddObject(Vanity.TableName, vanity);
                     context.SaveChanges();
+                    Trace.WriteLine(string.Format("Added record for {0} ({1})", uri, rowKey));
                 }//);
             }
 
@@ -129,29 +140,35 @@ namespace VanMan.WebApplication
                 destination += Request.Url.Query;
 
             if ((vanity.GetOptions() & RedirectOptions.Permanent) == RedirectOptions.Permanent)
+            {
+                Trace.WriteLine(string.Format("301 Redirecting from {0} ({1}) to {2}", uri, rowKey, destination));
                 Response.RedirectPermanent(destination, true);
+            }
             else
+            {
+                Trace.WriteLine(string.Format("302 Redirecting from {0} ({1}) to {2}", uri, rowKey, destination));
                 Response.Redirect(destination, true);
+            }
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
         {
-
+            Trace.WriteLine("Application_AuthenticateRequest");
         }
 
         protected void Application_Error(object sender, EventArgs e)
         {
-
+            Trace.WriteLine("Application_Error");
         }
 
         protected void Session_End(object sender, EventArgs e)
         {
-
+            Trace.WriteLine("Session_End");
         }
 
         protected void Application_End(object sender, EventArgs e)
         {
-
+            Trace.WriteLine("Application_End");
         }
     }
 }
