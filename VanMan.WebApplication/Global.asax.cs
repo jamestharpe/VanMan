@@ -49,22 +49,29 @@ namespace VanMan.WebApplication
 
         protected void Application_Start(object sender, EventArgs e)
         {
+            //
             // Create the table if it doesn't exist
+
             var client = GetTableClient();
             if (client.CreateTableIfNotExist(Vanity.TableName))
             {
                 //
                 // Must do this voodoo: http://deeperdesign.wordpress.com/2010/03/10/azure-table-storage-what-a-pain-in-the-ass/
 
-                Vanity temp = new Vanity("http://www.rollins.com")
+                Vanity temp = new Vanity(Guid.NewGuid().ToString())
                 {
                     Destination = CloudConfigurationManager.GetSetting("DefaultDestination") ?? "https://github.com/jamestharpe/VanMan",
                     Options = (int)RedirectOptions.Default,
                     PartitionKey = string.Empty
                 };
+
                 var context = client.GetDataServiceContext();
                 context.AddObject(Vanity.TableName, temp);
                 context.SaveChanges();
+
+                // 
+                // Undo the voodoo
+
                 context.DeleteObject(temp);
                 context.SaveChanges(SaveChangesOptions.ContinueOnError);
             }
@@ -109,7 +116,7 @@ namespace VanMan.WebApplication
             {
                 vanity = new Vanity(uri.ToString())
                 {
-                    Destination = "http://www.rollins.com",
+                    Destination = CloudConfigurationManager.GetSetting("DefaultDestination") ?? "https://github.com/jamestharpe/VanMan",
                     Options = (int)RedirectOptions.Default,
                     PartitionKey = string.Empty
                 };
