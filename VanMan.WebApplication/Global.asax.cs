@@ -79,7 +79,7 @@ namespace VanMan.WebApplication
 
             var uri = Request.Url;
 
-            var rowKey = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(Chop(uri).ToString()));
+            var rowKey = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(uri.ToString()));
 
             Trace.WriteLine(string.Format("Handling {0} ({1})", uri, rowKey));
 
