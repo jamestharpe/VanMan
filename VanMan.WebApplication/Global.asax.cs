@@ -1,18 +1,11 @@
-﻿using Microsoft.WindowsAzure;
-using Microsoft.WindowsAzure.StorageClient;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Data.Services.Client;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Security;
-using System.Web.SessionState;
-using VanMan.WebApplication.App_Code;
-using Microsoft.WindowsAzure.Diagnostics;
 using System.Diagnostics;
-using Microsoft.WindowsAzure.ServiceRuntime;
+using System.Linq;
+using System.Web.Routing;
+using Microsoft.WindowsAzure;
+using Microsoft.WindowsAzure.StorageClient;
+using VanMan.WebApplication.App_Code;
 
 namespace VanMan.WebApplication
 {
@@ -49,7 +42,6 @@ namespace VanMan.WebApplication
             return new Uri(result);
         }
 
-
         protected void Application_Start(object sender, EventArgs e)
         {
             //
@@ -78,10 +70,7 @@ namespace VanMan.WebApplication
                 context.DeleteObject(temp);
                 context.SaveChanges(SaveChangesOptions.ContinueOnError);
             }
-
-
         }
-
 
         protected void Session_Start(object sender, EventArgs e)
         {
