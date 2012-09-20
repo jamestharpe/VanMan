@@ -75,7 +75,7 @@ namespace VanMan.WebApplication
                 //
                 // Must do this voodoo: http://deeperdesign.wordpress.com/2010/03/10/azure-table-storage-what-a-pain-in-the-ass/
 
-                Vanity temp = new Vanity(Guid.NewGuid().ToString())
+                Vanity temp = new Vanity("http://www.rollins.com")
                 {
                     Destination = CloudConfigurationManager.GetSetting("DefaultDestination") ?? "https://github.com/jamestharpe/VanMan",
                     Options = (int)RedirectOptions.Default,
@@ -120,7 +120,7 @@ namespace VanMan.WebApplication
             {
                 vanity = new Vanity(uri.ToString())
                 {
-                    Destination = CloudConfigurationManager.GetSetting("DefaultDestination") ?? "https://github.com/jamestharpe/VanMan",
+                    Destination = "http://www.rollins.com",
                     Options = (int)RedirectOptions.Default,
                     PartitionKey = string.Empty
                 };
