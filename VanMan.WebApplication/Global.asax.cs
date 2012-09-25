@@ -63,6 +63,14 @@ namespace VanMan.WebApplication
                 Trace.WriteLine(string.Format("Url {0} Base64Ecoded {1} is invalid. {2}", uri.ToString(), rowKey, ex.Message));
             }
 
+            if (result != null)
+            {
+                Trace.WriteLine(string.Format("Uri: {0} Vanity.RowKey: {1} Vanity.Destation: {2} Vanity.Options: {3}",
+                    uri.ToString(),
+                    rowKey,
+                    result.Destination,
+                    result.Options));
+            }
             return result;
         }
 
@@ -142,12 +150,12 @@ namespace VanMan.WebApplication
 
             if ((vanity.GetOptions() & RedirectOptions.Permanent) == RedirectOptions.Permanent)
             {
-                //Trace.WriteLine(string.Format("301 Redirecting from {0} ({1}) to {2}", uri, rowKey, destination));
+                Trace.WriteLine(string.Format("301 Redirecting from {0} to {1}", uri, destination));
                 Response.RedirectPermanent(destination, true);
             }
             else
             {
-                //Trace.WriteLine(string.Format("302 Redirecting from {0} ({1}) to {2}", uri, rowKey, destination));
+                Trace.WriteLine(string.Format("302 Redirecting from {0} to {1}", uri, destination));
                 Response.Redirect(destination, true);
             }
         }
@@ -159,7 +167,8 @@ namespace VanMan.WebApplication
 
         protected void Application_Error(object sender, EventArgs e)
         {
-            Trace.WriteLine("Application_Error");
+            Exception ex = Server.GetLastError();
+            Trace.WriteLine(string.Format("Application_Error Message: {0} Stack: {1}", ex.Message, ex.StackTrace));
         }
 
         protected void Session_End(object sender, EventArgs e)
