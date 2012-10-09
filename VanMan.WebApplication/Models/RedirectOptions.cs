@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace VanMan.Core
+namespace VanMan.WebApplication.App_Code
 {
     [Flags]
     public enum RedirectOptions
