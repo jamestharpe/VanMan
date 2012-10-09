@@ -1,14 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
-using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.StorageClient;
-using System.Data.Linq;
 
-namespace VanMan.WebApplication.App_Code
+namespace VanMan.Core
 {
     public class Vanity : TableServiceEntity
     {
