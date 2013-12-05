@@ -4,15 +4,24 @@
     <Sites>
       <Site name="Web">
         <Bindings>
-          <Binding name="Endpoint1" endpointName="Endpoint1" />
+          <Binding name="HttpIn" endpointName="HttpIn" />
+          <Binding name="HttpsIn" endpointName="HttpsIn" />
         </Bindings>
       </Site>
     </Sites>
     <Endpoints>
-      <InputEndpoint name="Endpoint1" protocol="http" port="80" />
+      <InputEndpoint name="HttpIn" protocol="http" port="80" />
+      <InputEndpoint name="HttpsIn" protocol="https" port="443" certificate="VanManSSLCert" />
     </Endpoints>
+    <Certificates>
+      <Certificate name="ThawteSSLCA" storeLocation="LocalMachine" storeName="CA" />
+      <Certificate name="ThawtePrimaryRootCA" storeLocation="LocalMachine" storeName="CA" />
+      <Certificate name="VanManSSLCert" storeLocation="LocalMachine" storeName="My" />
+    </Certificates>
     <Imports>
       <Import moduleName="Diagnostics" />
+      <Import moduleName="RemoteAccess" />
+      <Import moduleName="RemoteForwarder" />
     </Imports>
     <ConfigurationSettings>
       <Setting name="StorageConnectionString" />
