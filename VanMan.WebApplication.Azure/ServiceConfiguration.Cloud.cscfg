@@ -3,8 +3,8 @@
   <Role name="VanMan.WebApplication">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=vanman;AccountKey=2fTP12iOtftSpCWXqOjJz9U2x4qLCVXrckuSQcRG4XPeuYCEDG5xfwe/AYi6QE9+OLu/2lxvCuyidJqhvFg4eQ==" />
-      <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=http;AccountName=vanman;AccountKey=2fTP12iOtftSpCWXqOjJz9U2x4qLCVXrckuSQcRG4XPeuYCEDG5xfwe/AYi6QE9+OLu/2lxvCuyidJqhvFg4eQ==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="StorageConnectionString" value="UseDevelopmentStorage=true" />
       <Setting name="DefaultDestination" value="http://www.rollins.com" />
       <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
       <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="Administrator" />
