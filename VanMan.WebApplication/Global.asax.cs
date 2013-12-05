@@ -7,6 +7,7 @@ using System.Web.Routing;
 using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.StorageClient;
 using VanMan.WebApplication.App_Code;
+using System.IO;
 
 namespace VanMan.WebApplication
 {
@@ -142,7 +143,7 @@ namespace VanMan.WebApplication
             }
 
             var destination = (((vanity.GetOptions() & RedirectOptions.PreservePath) == RedirectOptions.PreservePath)
-                ? vanity.Destination + Request.Url.AbsolutePath
+                ? Path.Combine(vanity.Destination, Request.Url.AbsolutePath)
                 : vanity.Destination);
 
             if ((vanity.GetOptions() & RedirectOptions.PreserveQueryString) == RedirectOptions.PreserveQueryString)
