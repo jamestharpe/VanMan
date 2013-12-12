@@ -143,7 +143,7 @@ namespace VanMan.WebApplication
             }
 
             var destination = (((vanity.GetOptions() & RedirectOptions.PreservePath) == RedirectOptions.PreservePath)
-                ? Path.Combine(vanity.Destination, Request.Url.AbsolutePath)
+                ? vanity.Destination + Request.Url.AbsolutePath
                 : vanity.Destination);
 
             if ((vanity.GetOptions() & RedirectOptions.PreserveQueryString) == RedirectOptions.PreserveQueryString)
