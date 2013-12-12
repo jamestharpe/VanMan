@@ -7,6 +7,7 @@ using System.Web.Routing;
 using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.StorageClient;
 using VanMan.WebApplication.App_Code;
+using System.IO;
 
 namespace VanMan.WebApplication
 {

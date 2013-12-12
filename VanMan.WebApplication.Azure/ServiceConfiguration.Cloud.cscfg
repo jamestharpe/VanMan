@@ -6,6 +6,17 @@
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
       <Setting name="StorageConnectionString" value="UseDevelopmentStorage=true" />
       <Setting name="DefaultDestination" value="http://www.rollins.com" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="Administrator" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEEBIeMfMaPG9QD2AJqq3riIwDQYJKoZIhvcNAQEBBQAEggEAR2PYZf2CWGEayQdHslFLr4KsT+LeoZttRAxAoJVhl3ss4Mp6dxvUBDwY8Mgee30JzvrPW0hUI9ZlXwUeMfUX7ZRzysrOMLoJwX8fPvrthy/9/ZRpkKhEGFxboS2/3ualchUKaaQHhq3y9HH5O//zLhLu9OM001IXxUw5gcqKu82ipE8org/P5mXxYyhaDe+6lmBqXrX1XXG6WrBn7OnWB+mLtnWawEPnf5Goaf6sffL/Ma/slJUpUhXbznsNvTVh59Etti+GRKV6/xmE8pJd8eIBw3lUGcgRVnwVnPCLUBLIoNAC8qrdTVpakXtjeGTYqZAvJe7SiOulvSqnBqbH2DAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECPtpHoq0CBTggBADNl3Y06b+Iw+8u5f925yJ" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2014-09-04T23:59:59.0000000-04:00" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
     </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="ThawteSSLCA" thumbprint="73E42686657AECE354FBF685712361658F2F4357" thumbprintAlgorithm="sha1" />
+      <Certificate name="ThawtePrimaryRootCA" thumbprint="91C6D6EE3E8AC86384E548C299295C756C817B81" thumbprintAlgorithm="sha1" />
+      <Certificate name="VanManSSLCert" thumbprint="210903A0F719C3B8E807D9562FE2BA394BFAF137" thumbprintAlgorithm="sha1" />
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="89A9EE4D604399C1CD0A62BA62579BE648CA3300" thumbprintAlgorithm="sha1" />
+    </Certificates>
   </Role>
 </ServiceConfiguration>
